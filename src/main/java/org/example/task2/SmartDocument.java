@@ -10,14 +10,18 @@ import com.google.cloud.vision.v1.ImageAnnotatorClient;
 import com.google.cloud.vision.v1.ImageSource;
 import com.google.cloud.vision.v1.TextAnnotation;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.SneakyThrows;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@AllArgsConstructor
 public class SmartDocument implements Document {
-    public String gcsPath;
+    @Getter
+    private final String gcsPath;
+    public SmartDocument(String gcsPath){
+        this.gcsPath=gcsPath;
+    }
 
     @SneakyThrows
     public String parse() {
