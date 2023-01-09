@@ -1,11 +1,11 @@
 package org.example.task2;
 
 public class CashedDocument implements Document{
-    private SmartDocument document;
+    private Document document;
     private String gcsPath;
     private Database db = Database.getInstance();
 
-    public CashedDocument(SmartDocument document) {
+    public CashedDocument(Document document) {
         this.document = document;
         this.gcsPath = document.getGcsPath();
     }
@@ -19,5 +19,10 @@ public class CashedDocument implements Document{
             return text;
         }
         return db.searchQuery(String.format("SELECT * FROM FIELD WHERE gcsPath = '%s'", gcsPath));
+    }
+
+    @Override
+    public String getGcsPath() {
+        return gcsPath;
     }
 }

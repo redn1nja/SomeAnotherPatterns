@@ -16,4 +16,9 @@ public class TimedDocument implements Document{
         System.out.println(endTime-startTime);
         return text;
     }
+
+    @Override
+    public String getGcsPath() {
+        return gcsPath;
+    }
 }

@@ -11,13 +11,14 @@ import com.google.cloud.vision.v1.ImageSource;
 import com.google.cloud.vision.v1.TextAnnotation;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.Setter;
 import lombok.SneakyThrows;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class SmartDocument implements Document {
-    @Getter
+    @Getter @Setter
     private final String gcsPath;
     public SmartDocument(String gcsPath){
         this.gcsPath=gcsPath;
